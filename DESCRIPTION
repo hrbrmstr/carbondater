@@ -1,0 +1,27 @@
+Package: carbondater
+Type: Package
+Title: Estimate the Age of Web Resources
+Version: 0.1.0
+Date: 2018-05-06
+Authors@R: c(
+    person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
+           comment = c(ORCID = "0000-0001-5670-2640"))
+  )
+Maintainer: Bob Rudis <bob@rud.is>
+Description: Methods are provided to read 'URL' metadata and scan web archives/use
+    web archive 'APIs' to determine the approxate age of the resource.
+URL: https://github.com/hrbrmstr/carbondater
+BugReports: https://github.com/hrbrmstr/carbondater/issues
+Encoding: UTF-8
+License: AGPL
+Suggests:
+    testthat,
+    covr
+Depends:
+    R (>= 3.2.0)
+Imports:
+    anytime,
+    httr,
+    urltools,
+    stringi
+RoxygenNote: 6.0.1.9000
