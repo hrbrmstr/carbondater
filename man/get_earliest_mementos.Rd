@@ -10,7 +10,7 @@ get_earliest_mementos(uri)
 \item{uri}{URL/URI to search for}
 }
 \value{
-data frame (tibble) or \code{NULL} if no mementos
+data frame (tibble)
 }
 \description{
 Retrieve the earliest mementos for a URL/URI

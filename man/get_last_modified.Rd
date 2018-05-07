@@ -4,13 +4,13 @@
 \alias{get_last_modified}
 \title{Retrieve the last-modified header}
 \usage{
-get_last_modified(url)
+get_last_modified(uri)
 }
 \arguments{
 \item{uri}{URL/URI to read}
 }
 \value{
-data frame (tibble) or \code{NULL} if no haeder
+data frame (tibble)
 }
 \description{
 Retrieve the last-modified header

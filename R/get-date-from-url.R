@@ -4,15 +4,15 @@
 #' searches for common ones and returns it if found.
 #'
 #' @md
-#' @param x URL
+#' @param uri URL/URI to examine
 #' @export
 #' @examples
 #' get_date_from_url(
 #'   "https://rud.is/b/2018/05/03/seventeen-minutes-from-tweet-to-package/"
 #' )
-get_date_from_url <- function(x) {
+get_date_from_url <- function(uri) {
 
-  x <- stri_extract_first_regex(x, .date_regex)
+  x <- stri_extract_first_regex(uri, .date_regex)
 
   if (!is.na(x)) {
 
@@ -20,18 +20,20 @@ get_date_from_url <- function(x) {
     x <- stri_replace_last_regex(x, "[^[:digit:]]+$", "")
     x <- anytime::anytime(x)
 
-    data.frame(
-      url_date = x,
-      stringsAsFactors = FALSE
-    ) -> x
-
-    class(x) <- c("tbl_df", "tbl", "data.frame")
-
-    x
-
   } else {
-    NULL
+    x <- x <- anytime::anytime("")
   }
+
+  data.frame(
+    method = "url",
+    date = x,
+    uri = uri,
+    stringsAsFactors = FALSE
+  ) -> x
+
+  class(x) <- c("tbl_df", "tbl", "data.frame")
+
+  x
 
 }
 

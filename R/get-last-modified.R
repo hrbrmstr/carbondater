@@ -2,13 +2,13 @@
 #'
 #' @md
 #' @param uri URL/URI to read
-#' @return data frame (tibble) or `NULL` if no haeder
+#' @return data frame (tibble)
 #' @export
 #' @examples
 #' get_last_modified("http://www.example.org/")
-get_last_modified <- function(url) {
+get_last_modified <- function(uri) {
 
-  x <- safe_GET(url, httr::user_agent(.ua))
+  x <- safe_GET(uri, httr::user_agent(.ua))
 
   if (!is.null(x)) {
 
@@ -17,11 +17,10 @@ get_last_modified <- function(url) {
 
   }
 
-  # if we got nada
-  if (is.null(x)) return(NULL)
-
   data.frame(
-    last_modified = anytime::anytime(x),
+    method = "last_modified",
+    date = if (is.null(x)) anytime::anytime("") else anytime::anytime(x),
+    uri = uri,
     stringsAsFactors = FALSE
   ) -> x
 

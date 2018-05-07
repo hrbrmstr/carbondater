@@ -4,17 +4,17 @@
 \alias{get_earliest_pubdate}
 \title{Retrieve the earliest "pubdate" for a URL}
 \usage{
-get_earliest_pubdate(url)
+get_earliest_pubdate(uri)
 }
 \arguments{
 \item{uri}{URL/URI to read}
 }
 \value{
-data frame (tibble) or \code{NULL} if no metadata.
+data frame (tibble)
 }
 \description{
 Scan URL content for metatdata indicating publication date. Failing that,
-try to extract it from the URL itself. Failing that, return \code{NULL}.
+try to extract it from the URL itself.
 }
 \examples{
 get_earliest_pubdate(

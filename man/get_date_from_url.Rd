@@ -4,10 +4,10 @@
 \alias{get_date_from_url}
 \title{Locate and retrieve publication date from a URL}
 \usage{
-get_date_from_url(x)
+get_date_from_url(uri)
 }
 \arguments{
-\item{x}{URL}
+\item{uri}{URL/URI to examine}
 }
 \description{
 Many modern URLs have publication dates in the URL. This function

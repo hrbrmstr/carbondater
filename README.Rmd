@@ -1,5 +1,7 @@
 ---
 output: rmarkdown::github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 # carbondater
@@ -22,7 +24,7 @@ The following functions are implemented:
 
 ## TODO
 
-- [ ] A `carbondate()` function to wrap up everything
+- [X] A `carbondate()` function to wrap up everything
 - [ ] More error checking
 - [ ] More resources to check
 - [ ] More documentation
@@ -49,24 +51,14 @@ packageVersion("carbondater")
 
 ```
 
-### Mementos
+### Carbon data a few URIs
 
 ```{r}
-get_earliest_mementos("http://www.cs.odu.edu")
-```
+carbondate("https://rud.is/b/2013/12/27/points-polygons-and-power-outages/")
 
-### Last Modified
+carbondate("http://www.cs.odu.edu")
 
-```{r}
-get_last_modified("http://example.org/")
-```
+carbondate("http://example.org/")
 
-```{r}
-get_earliest_pubdate("http://www.cnn.com/2011/10/28/living/ways-to-look-better-is/index.html")
-```
-
-```{r}
-get_date_from_url(
-  "https://rud.is/b/2018/05/03/seventeen-minutes-from-tweet-to-package/"
-)
+carbondate("http://www.cnn.com/2011/10/28/living/ways-to-look-better-is/index.html")
 ```

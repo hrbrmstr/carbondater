@@ -2,7 +2,7 @@
 #'
 #' @md
 #' @param uri URL/URI to search for
-#' @return data frame (tibble) or `NULL` if no mementos
+#' @return data frame (tibble)
 #' @export
 #' @examples
 #' get_earliest_mementos("http://rapid7.com/")
@@ -17,7 +17,16 @@ get_earliest_mementos <- function(uri) {
     httr::user_agent(.ua)
   ) -> res
 
-  if (is.null(res)) return(NULL)
+  if (is.null(res)) {
+    data.frame(
+      date = anytime::anytime(""),
+      uri = uri,
+      method = "memento",
+      stringsAsFactors = FALSE
+    ) -> res
+    class(res) <- c("tbl_df", "tbl", "data.frame")
+    return(res)
+  }
 
   res <- httr::content(res)
 
@@ -45,13 +54,23 @@ get_earliest_mementos <- function(uri) {
 
     # no longer need the domain
     res$domain <- NULL
-    colnames(res) <- c("memento_datetime", "uri_m")
-    class(res) <- c("tbl_df", "tbl", "data.frame")
+
+    colnames(res) <- c("date", "uri")
 
     res
 
   } else {
-    NULL
+    data.frame(
+      date = anytime::anytime(""),
+      uri = uri,
+      stringsAsFactors = FALSE
+    ) -> res
   }
+
+  res$method <- "memento"
+
+  class(res) <- c("tbl_df", "tbl", "data.frame")
+
+  res
 
 }

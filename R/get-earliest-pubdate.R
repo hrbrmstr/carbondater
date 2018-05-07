@@ -4,19 +4,19 @@
 #' Retrieve the earliest "pubdate" for a URL
 #'
 #' Scan URL content for metatdata indicating publication date. Failing that,
-#' try to extract it from the URL itself. Failing that, return `NULL`.
+#' try to extract it from the URL itself.
 #'
 #' @md
 #' @param uri URL/URI to read
-#' @return data frame (tibble) or `NULL` if no metadata.
+#' @return data frame (tibble)
 #' @export
 #' @examples
 #' get_earliest_pubdate(
 #'  "https://rud.is/b/2018/05/03/seventeen-minutes-from-tweet-to-package/"
 #' )
-get_earliest_pubdate <- function(url) {
+get_earliest_pubdate <- function(uri) {
 
-  x <- safe_GET(url, httr::user_agent(.ua))
+  x <- safe_GET(uri, httr::user_agent(.ua))
 
   if (!is.null(x)) {
 
@@ -48,17 +48,17 @@ get_earliest_pubdate <- function(url) {
       x$mval <- anytime::anytime(x$mval)
       x <- min(x$mval)
     } else {
-      x <- NA
+      x <- anytime::anytime("")
     }
+
   } else {
-    x <- NA
+    x <- anytime::anytime("")
   }
 
-  # if we got nada
-  if (is.na(x)) return(NULL)
-
   data.frame(
-    pubdate = x,
+    method = "pubdate",
+    date = x,
+    uri = uri,
     stringsAsFactors = FALSE
   ) -> x
 
