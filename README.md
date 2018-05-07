@@ -18,6 +18,14 @@ The following functions are implemented:
   - `get_earliest_pubdate`: Retrieve the earliest “pubdate” for a URL
   - `get_last_modified`: Retrieve the last-modified header
 
+## TODO
+
+  - \[ \] A `carbondate()` function to wrap up everything
+  - \[ \] More error checking
+  - \[ \] More resources to check
+  - \[ \] More documentation
+  - \[ \] Tests
+
 ## Installation
 
 ``` r
@@ -42,14 +50,7 @@ packageVersion("carbondater")
 get_earliest_mementos("http://www.cs.odu.edu")
 ```
 
-    ## # A tibble: 5 x 2
-    ##   memento_datetime    uri_m                                                                  
-    ## * <dttm>              <chr>                                                                  
-    ## 1 1997-06-06 10:50:39 http://archive.is/19970606105039/http://www.cs.odu.edu/                
-    ## 2 2009-12-23 04:30:49 http://arquivo.pt/wayback/20091223043049/http://www.cs.odu.edu/        
-    ## 3 2012-02-08 03:54:08 http://web.archive.org/web/20120208035408/http://@cs.odu.edu/          
-    ## 4 2017-03-04 16:34:53 http://wayback.archive-it.org/all/20170304163453/http://www.cs.odu.edu/
-    ## 5 1997-01-02 13:01:37 http://web.archive.org/web/19970102130137/http://cs.odu.edu:80/
+    ## NULL
 
 ### Last Modified
 
@@ -78,6 +79,6 @@ get_date_from_url(
 ```
 
     ## # A tibble: 1 x 1
-    ##   last_modified      
+    ##   url_date           
     ##   <dttm>             
     ## 1 2018-05-03 00:00:00

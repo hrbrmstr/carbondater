@@ -21,7 +21,7 @@ get_date_from_url <- function(x) {
     x <- anytime::anytime(x)
 
     data.frame(
-      last_modified = x,
+      url_date = x,
       stringsAsFactors = FALSE
     ) -> x
 

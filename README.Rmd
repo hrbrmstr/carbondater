@@ -20,6 +20,14 @@ The following functions are implemented:
 - `get_earliest_pubdate`:	Retrieve the earliest "pubdate" for a URL
 - `get_last_modified`:	Retrieve the last-modified header
 
+## TODO
+
+- [ ] A `carbondate()` function to wrap up everything
+- [ ] More error checking
+- [ ] More resources to check
+- [ ] More documentation
+- [ ] Tests
+
 ## Installation
 
 ```{r eval=FALSE}
