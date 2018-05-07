@@ -14,6 +14,8 @@ safe_GET <- function(url = NULL, config = list(),
     )
   ) -> res
 
+  options(show.error.messages = TRUE)
+
   return(res)
 
 }

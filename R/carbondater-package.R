@@ -9,6 +9,7 @@
 #' @author Bob Rudis (bob@@rud.is)
 #' @import httr
 #' @import stringi
+#' @importFrom magrittr %>%
 #' @importFrom urltools domain
 #' @importFrom anytime anytime anydate
 NULL

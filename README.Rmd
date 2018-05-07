@@ -55,11 +55,19 @@ packageVersion("carbondater")
 ### Carbon data a few URIs
 
 ```{r}
-carbondate("https://rud.is/b/2013/12/27/points-polygons-and-power-outages/")
+(x <- carbondate("https://rud.is/b/2013/12/27/points-polygons-and-power-outages/"))
 
-carbondate("http://www.cs.odu.edu")
+glimpse(x)
 
-carbondate("http://example.org/")
+(x <- carbondate("http://www.cs.odu.edu"))
 
-carbondate("http://www.cnn.com/2011/10/28/living/ways-to-look-better-is/index.html")
+glimpse(x)
+
+(x <- carbondate("http://example.org/"))
+
+glimpse(x)
+
+(x <- carbondate("http://www.cnn.com/2011/10/28/living/ways-to-look-better-is/index.html"))
+
+glimpse(x)
 ```

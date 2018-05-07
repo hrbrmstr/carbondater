@@ -60,11 +60,11 @@ get_earliest_pubdate <- function(uri) {
     date = x,
     uri = uri,
     stringsAsFactors = FALSE
-  ) -> x
+  ) -> res
 
-  class(x) <- c("tbl_df", "tbl", "data.frame")
+  class(res) <- c("tbl_df", "tbl", "data.frame")
 
-  x
+  res
 
 }
 

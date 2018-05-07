@@ -28,6 +28,17 @@ get_earliest_mementos <- function(uri) {
     return(res)
   }
 
+  if (httr::status_code(res) != 200) {
+    data.frame(
+      date = anytime::anytime(""),
+      uri = uri,
+      method = "memento",
+      stringsAsFactors = FALSE
+    ) -> res
+    class(res) <- c("tbl_df", "tbl", "data.frame")
+    return(res)
+  }
+
   res <- httr::content(res)
 
   # if we have some
@@ -56,8 +67,6 @@ get_earliest_mementos <- function(uri) {
     res$domain <- NULL
 
     colnames(res) <- c("date", "uri")
-
-    res
 
   } else {
     data.frame(

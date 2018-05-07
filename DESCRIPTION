@@ -23,5 +23,6 @@ Imports:
     anytime,
     httr,
     urltools,
+    magrittr,
     stringi
 RoxygenNote: 6.0.1.9000

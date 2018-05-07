@@ -18,6 +18,39 @@ carbondate <- function(uri) {
   pub_date <- get_earliest_pubdate(uri)
   last_mod_date <- get_last_modified(uri)
 
-  do.call(rbind.data.frame, list(url_date, memento_dates, pub_date, last_mod_date))
+  res <- do.call(rbind.data.frame, list(url_date, memento_dates, pub_date, last_mod_date))
+
+  class(res) <- c("carbondate_record", "tbl_df", "tbl", "data.frame")
+
+  res
+
+}
+
+#' @md
+#' @noRd
+#' @param x obj
+#' @param ... unused
+#' @export
+print.carbondate_record <- function(x, ...) {
+
+  if (all(is.na(x$date))) {
+    message("No publication history was discovered.")
+  } else {
+
+    x <- x[!is.na(x$date),]
+    x <- x[order(x$date),]
+    x <- x[1,]
+
+    cat(
+      sprintf(
+        "Oldest publication record found: %s in %s (%s days ago)\n",
+        as.character(x$date),
+        x$method,
+        prettyNum(as.numeric(Sys.time() - x$date, "days"))
+      ),
+      sep=""
+    )
+
+  }
 
 }
