@@ -17,6 +17,7 @@ web archive 'APIs' to determine the approxate age of the resource.
 
 The following functions are implemented:
 
+- `carbondate`:	Carbon date a URL/URI
 - `get_date_from_url`:	Locate and retrieve publication date from a URL
 - `get_earliest_mementos`:	Retrieve the earliest mementos for a URL/URI
 - `get_earliest_pubdate`:	Retrieve the earliest "pubdate" for a URL
