@@ -43,10 +43,10 @@ print.carbondate_record <- function(x, ...) {
 
     cat(
       sprintf(
-        "Oldest publication record found: %s in %s (%s days ago)\n",
+        "Oldest publication record found: %s in %s (%s ago)\n",
         as.character(x$date),
         x$method,
-        prettyNum(as.numeric(Sys.time() - x$date, "days"))
+        prettyunits::pretty_dt(Sys.time() - x$date)
       ),
       sep=""
     )

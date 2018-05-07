@@ -10,6 +10,7 @@
 #' @import httr
 #' @import stringi
 #' @importFrom magrittr %>%
+#' @importFrom prettyunits pretty_dt
 #' @importFrom urltools domain
 #' @importFrom anytime anytime anydate
 NULL
